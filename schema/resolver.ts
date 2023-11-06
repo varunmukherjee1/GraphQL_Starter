@@ -1,5 +1,9 @@
-const resolvers = {
+import { UserList } from "../data/fakeData"
+
+export const resolvers = {
     Query: {
-        users:
+        users() {
+            return UserList
+        }
     }
 }
