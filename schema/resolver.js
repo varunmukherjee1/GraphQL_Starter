@@ -1,4 +1,4 @@
-import { UserList } from "../data/fakeData"
+import { UserList } from "../data/fakeData.js"
 
 export const resolvers = {
     Query: {
