@@ -49,6 +49,27 @@ export const resolvers = {
             console.log(inpUser);
 
             return inpUser
+        },
+        updateUsername: (parent,args) => {
+
+            const {id,newUsername} = args.input
+            let updatedUser
+
+            UserList.forEach((user) => {
+                if(user.id === Number(id)){
+                    user.username = newUsername
+                    updatedUser = user
+                }
+            })
+
+            return updatedUser
+        },
+        deleteUser: (parent,args) => {
+            const id = args.id
+
+            UserList = UserList.filter((usr) => (usr.id != Number(id)))
+
+            return null
         }
     },
 }
