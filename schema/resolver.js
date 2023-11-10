@@ -38,5 +38,17 @@ export const resolvers = {
         favouriteMovies: () => {
             return MovieList.filter((mov) => (mov.yearOfPublication >= 2000 && mov.yearOfPublication <= 2010))
         }
-    }
+    },
+    Mutation: {
+        createUser: (parent, args) => {
+            const inpUser = args.input
+            const lastId = UserList[UserList.length -1].id
+            inpUser.id = lastId+1
+            UserList.push(inpUser)
+
+            console.log(inpUser);
+
+            return inpUser
+        }
+    },
 }
